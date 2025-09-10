@@ -1,3 +1,19 @@
+#função para as operações
+
+def somar(a,b):
+    return a+b
+
+def subtrair(a,b):
+    return a-b
+
+def multiplicar(a,b):
+    return a*b
+
+def dividir(a,b):
+    if b==0:
+        return "dx de ser burro, 0 nao divide"
+    return a/b
+    
 opcao=1
 
 while opcao!=0:
@@ -17,8 +33,7 @@ while opcao!=0:
 
     if opcao==0:
         print("saindo...")
-
-    break;
+        break
 
     #inserção dos numeros
 
@@ -28,16 +43,13 @@ while opcao!=0:
     #condições para os calculos
 
     if opcao==1:
-        print("resultado :",num1+num2)
+        print("resultado: ",somar(num1,num2))
     elif opcao==2:
-        print("resultado :",num1-num2)
+        print("resultado :",subtrair(num1,num2))
     elif opcao==3:
-        print("resultado :",num1*num2)
+        print("resultado :",multiplicar(num1,num2))
     elif opcao==4:
-        if num2==0:
-            print("calculo impossivel, faz essa porra direito krlh")
-        else:
-            print("resultado :",num1/num2)
+            print("resultado :",dividir(num1,num2))
     else:
         print("se caiu aq eh porq fez alguma merda")
 
