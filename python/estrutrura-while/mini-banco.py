@@ -6,12 +6,16 @@ saldo = 0
 
 #funções das operações 
 
-def depositar(deposito):
+def depositar(valor):
 
-    return saldo+deposito
+    return saldo+valor
 
-def sacar(saque):
-    return saldo - saque
+def sacar(valor):
+
+    if valor > saldo:
+        return print("saldo insuficiente para o saque")
+    else:
+        return saldo - valor
 
 def consultar():
     return saldo   
@@ -38,18 +42,24 @@ while opcao!=0:
     #saindo do laço se opcao == 0
 
     if opcao==0:
+
         print("saindo...")
         break
     
     #condiçoes das operações
 
     if opcao==1:
+
         print("Seu saldo: ", consultar())
+
     elif opcao==2:
-        depositando = int(input("digite o valor do deposito: "))
-        depositar(depositando)
+
+        valor = int(input("digite o valor do deposito: "))
+        saldo = depositar(valor)
+
     elif opcao==3:
-        #saque = int(input("digite o valor q quer sacar"))
-        sacar()
+
+        valor = int(input("digite o valor q quer sacar: "))
+        saldo = sacar(valor)
 
 
