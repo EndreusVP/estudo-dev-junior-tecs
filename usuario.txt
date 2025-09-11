@@ -1,0 +1,2 @@
+nome: Endreus | idade: 21
+nome: lucas | idade: 12
