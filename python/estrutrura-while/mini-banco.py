@@ -8,7 +8,7 @@ saldo = 0
 
 def depositar(valor):
 
-    return saldo+valor
+    return saldo + valor
 
 def sacar(valor):
 
