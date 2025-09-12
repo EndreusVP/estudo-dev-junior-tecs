@@ -11,7 +11,7 @@ def carregar_saldo():
     
 def salvar_saldo(saldo):
     with open("dados_bancarios.txt", "w") as arquivo:
-        return arquivo.write(str(saldo))
+        arquivo.write(str(saldo))
 
 #funções das operações 
 
