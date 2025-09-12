@@ -4,21 +4,40 @@ print("=====Banco Python=====")
 
 saldo = 0
 
+with open("dados_bancarios.txt", "w") as arquivo:
+
+    saldo_str = str(saldo)
+    arquivo.write("Seu saldo: ")
+    arquivo.write(saldo_str)
+
 #funções das operações 
 
 def depositar(valor):
+    with open("dados_bancarios.txt", "w") as arquivo:
 
-    return saldo + valor
+        calculo = valor + saldo
+        calculo_str = str(calculo)
+        arquivo.write("Seu saldo: ")
+        arquivo.write(calculo_str)
+
 
 def sacar(valor):
 
-    if valor > saldo:
+    saldo_int = int(saldo)
+
+    if valor > saldo_int:
         return print("saldo insuficiente para o saque")
     else:
-        return saldo - valor
+
+        calculo = saldo_int - valor
+        calculo_str = str(calculo)
+        arquivo.write("Seu saldo: ")
+        arquivo.write(calculo_str)
 
 def consultar():
-    return saldo   
+    with open("dados_bancarios.txt", "r") as arquivos:
+        print("seu saldo eh : ")
+        print(arquivo.read())
 
 #valor pra entrar no laço
 
@@ -50,7 +69,7 @@ while opcao!=0:
 
     if opcao==1:
 
-        print("Seu saldo: ", consultar())
+        consultar()
 
     elif opcao==2:
 
