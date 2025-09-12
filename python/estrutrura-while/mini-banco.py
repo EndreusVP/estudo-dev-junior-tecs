@@ -1,43 +1,45 @@
 print("=====Banco Python=====")
 
-#saldo da conta 
+#criando arquivo para salvar os dados
 
-saldo = 0
-
-with open("dados_bancarios.txt", "w") as arquivo:
-
-    saldo_str = str(saldo)
-    arquivo.write("Seu saldo: ")
-    arquivo.write(saldo_str)
+def carregar_saldo():
+    try:
+        with open("dados_bancarios.txt", "r") as arquivo:
+            return int(arquivo.read())
+    except FileExistsError: 
+        return 0
+    
+def salvar_saldo(saldo):
+    with open("dados_bancarios.txt", "W") as arquivos:
+        return arquivos.write(str(saldo))
 
 #funções das operações 
 
 def depositar(valor):
-    with open("dados_bancarios.txt", "w") as arquivo:
-
-        calculo = valor + saldo
-        calculo_str = str(calculo)
-        arquivo.write("Seu saldo: ")
-        arquivo.write(calculo_str)
+        
+        saldo = carregar_saldo()
+        saldo += valor
+        salvar_saldo(saldo)
+        print(f"seu saldo: {saldo}")
+        return saldo
 
 
 def sacar(valor):
 
-    saldo_int = int(saldo)
+    saldo = carregar_saldo()
 
-    if valor > saldo_int:
+    if valor > saldo:
         return print("saldo insuficiente para o saque")
     else:
+        saldo = saldo -  valor
+        salvar_saldo(saldo)
+        print(f"seu saldo: {saldo}")
+    return saldo
 
-        calculo = saldo_int - valor
-        calculo_str = str(calculo)
-        arquivo.write("Seu saldo: ")
-        arquivo.write(calculo_str)
 
 def consultar():
-    with open("dados_bancarios.txt", "r") as arquivos:
-        print("seu saldo eh : ")
-        print(arquivo.read())
+    saldo = carregar_saldo()
+    print(f"seu saldo: {saldo}")
 
 #valor pra entrar no laço
 
@@ -74,11 +76,11 @@ while opcao!=0:
     elif opcao==2:
 
         valor = int(input("digite o valor do deposito: "))
-        saldo = depositar(valor)
+        depositar(valor)
 
     elif opcao==3:
 
         valor = int(input("digite o valor q quer sacar: "))
-        saldo = sacar(valor)
+        sacar(valor)
 
 
