@@ -6,12 +6,12 @@ def carregar_saldo():
     try:
         with open("dados_bancarios.txt", "r") as arquivo:
             return int(arquivo.read())
-    except FileExistsError: 
+    except FileNotFoundError: 
         return 0
     
 def salvar_saldo(saldo):
-    with open("dados_bancarios.txt", "W") as arquivos:
-        return arquivos.write(str(saldo))
+    with open("dados_bancarios.txt", "w") as arquivo:
+        return arquivo.write(str(saldo))
 
 #funções das operações 
 
@@ -20,7 +20,7 @@ def depositar(valor):
         saldo = carregar_saldo()
         saldo += valor
         salvar_saldo(saldo)
-        print(f"seu saldo: {saldo}")
+        print(f"seu saldo: {saldo:.2f}")
         return saldo
 
 
