@@ -12,6 +12,18 @@ public class calculos {
 
         while (opcao!=0) {
 
+            System.out.println("=====Menu=====");
+
+            System.out.println("1 - somar");
+            System.out.println("2 - subtrair");
+            System.out.println("3 - multiplicar");
+            System.out.println("4 - dividir");
+            System.out.println("0 - sair");
+
+            System.out.println("Escolha uma opção: ");
+            opcao = entrada.nextInt();
+            entrada.nextLine();
+
             System.out.println("digite um numero: ");
 
             int numero1 = entrada.nextInt();
@@ -23,18 +35,6 @@ public class calculos {
             entrada.nextLine();
 
             Operacao numeros = new Operacao(numero1, numero2);
-
-
-            System.out.println("=====Menu=====");
-
-            System.out.println("1 - somar");
-            System.out.println("2 - subtrair");
-            System.out.println("3 - multiplicar");
-            System.out.println("4 - dividir");
-
-            System.out.println("Escolha uma opção: ");
-            opcao = entrada.nextInt();
-            entrada.nextLine();
 
             if (opcao == 0) {
                 System.out.println("saindo...");
@@ -52,10 +52,39 @@ public class calculos {
                     System.out.println("resultado: " + numeros.mult());
                     break;
                 case 4:
-                    if(numero2 == 0) {
-                        System.out.println("Não possivel dividir por zero!!")
-                    }else {
+                    if(numero2 != 0) {
                         System.out.println("resultado: " + numeros.div());
+                    }else {
+                        while (numero2 == 0 ) {
+                            System.out.println("nao pode dividir por 0!!");
+                            while (opcao == 0) {
+                                System.out.println("=====Menu=====");
+
+                                System.out.println("1 - somar");
+                                System.out.println("2 - subtrair");
+                                System.out.println("3 - multiplicar");
+                                System.out.println("4 - dividir");
+
+                                System.out.println("Escolha uma opção: ");
+                                opcao = entrada.nextInt();
+                                entrada.nextLine();
+
+                                switch (opcao) {
+                                    case 1:
+                                        System.out.println("resultado: " + numeros.somar());
+                                        break;
+                                    case 2:
+                                        System.out.println("resultado: " + numeros.sub());
+                                        break;
+                                    case 3: 
+                                        System.out.println("resultado: " + numeros.mult());
+                                        break;
+                                    default:
+                                        System.out.println("opção invalida");
+                                        break;
+                                }
+                            }
+                        }
                     }
                     
                     break;
