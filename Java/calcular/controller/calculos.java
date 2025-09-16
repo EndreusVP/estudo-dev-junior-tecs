@@ -52,7 +52,12 @@ public class calculos {
                     System.out.println("resultado: " + numeros.mult());
                     break;
                 case 4:
-                    System.out.println("resultado: " + numeros.div());
+                    if(numero2 == 0) {
+                        System.out.println("Não possivel dividir por zero!!")
+                    }else {
+                        System.out.println("resultado: " + numeros.div());
+                    }
+                    
                     break;
                 default:
                     System.out.println("escolheu oq nao existe prr");
