@@ -26,6 +26,7 @@ public class controle_estoque {
                 int quantidade_estoque = entrada.nextInt();
                 entrada.nextLine();
 
+                estoque lista = new estoque();
                 
 
                 break;
