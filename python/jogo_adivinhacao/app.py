@@ -31,4 +31,3 @@ while acertou == False:
 
 print("obgd por jogar")
 
-
